@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Value Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background: #f4f4f4;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Predict Average Order Value</h2>
+    <form method="post">
+        <label>Enter Age:</label>
+        <input type="number" name="age" required>
+
+        <label>Enter Gender:</label>
+        <select name="gender" required>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+
+        <button type="submit">Predict</button>
+
+        {% if result is not none %}
+            <p><strong>Predicted Order Value: ₹{{ result }}</strong></p>
+        {% endif %}
+    </form>
+</body>
+</html>
