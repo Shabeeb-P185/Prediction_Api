@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Category Recommender</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 30px;
+        }
+        input, select, button {
+            padding: 8px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Customer Details</h1>
+    <form method="post" action="/recommend">
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="gender">Gender:</label><br>
+        <select id="gender" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+
+        <button type="submit">Get Recommendation</button>
+    </form>
+
+    {% if result %}
+        <div class="result">
+            {% if "Error" in result %}
+                <span style="color:red">{{ result }}</span>
+            {% else %}
+                Recommended Category: {{ result }}
+            {% endif %}
+        </div>
+    {% endif %}
+</body>
+</html>
